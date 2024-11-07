@@ -4,7 +4,7 @@
   language: docker_image
   types: ["text"]
   files: \.(ps1|.psm1|.psd1)$
-  entry: ghcr.io/Qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleAnalyzer
+  entry: ghcr.io/qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleAnalyzer
   require_serial: true
   minimum_pre_commit_version: 3.0.0
 
@@ -14,7 +14,7 @@
   language: docker_image
   types: ["text"]
   files: \.(ps1|.psm1|.psd1)$
-  entry: ghcr.io/Qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleFormatter
+  entry: ghcr.io/qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleFormatter
   require_serial: true
   minimum_pre_commit_version: 3.0.0
 
@@ -24,6 +24,6 @@
   language: docker_image
   types: ["text"]
   files: \.(ps1|.psm1|.psd1)$
-  entry: ghcr.io/Qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleAnalyzer -Format github
+  entry: ghcr.io/qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleAnalyzer -Format github
   require_serial: true
   minimum_pre_commit_version: 3.0.0

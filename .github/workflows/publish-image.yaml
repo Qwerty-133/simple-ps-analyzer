@@ -41,15 +41,19 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Generate image repository name
+        id: repo-name
+        run: echo "name=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
           push: true
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:latest
+          cache-from: type=registry,ref=ghcr.io/${{ steps.repo-name.outputs.name }}:latest
           cache-to: type=inline
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ needs.get-sha-tag.outputs.tag }}
+            ghcr.io/${{ steps.repo-name.outputs.name }}:latest
+            ghcr.io/${{ steps.repo-name.outputs.name }}:${{ needs.get-sha-tag.outputs.tag }}
   
