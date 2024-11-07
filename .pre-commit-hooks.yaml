@@ -1,0 +1,29 @@
+- id: simple-ps-analyzer
+  name: analyze PowerShell files
+  description: Statically analyzes PowerShell files using PSScriptAnalyzer (Invoke-ScriptAnalyzer)
+  language: docker_image
+  types: ["text"]
+  files: \.(ps1|.psm1|.psd1)$
+  entry: ghcr.io/Qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleAnalyzer
+  require_serial: true
+  minimum_pre_commit_version: 3.0.0
+
+- id: simple-ps-formatter
+  name: format PowerShell files
+  description: Format PowerShell files using PSScriptAnalyzer (Invoke-Formatter)
+  language: docker_image
+  types: ["text"]
+  files: \.(ps1|.psm1|.psd1)$
+  entry: ghcr.io/Qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleFormatter
+  require_serial: true
+  minimum_pre_commit_version: 3.0.0
+
+- id: simple-ps-github
+  name: analyze PowerShell files (github output)
+  description: Statically analyzes PowerShell files using PSScriptAnalyzer (Invoke-ScriptAnalyzer)
+  language: docker_image
+  types: ["text"]
+  files: \.(ps1|.psm1|.psd1)$
+  entry: ghcr.io/Qwerty-133/simple-ps-analyzer pwsh -Command Invoke-SimpleAnalyzer -Format github
+  require_serial: true
+  minimum_pre_commit_version: 3.0.0
