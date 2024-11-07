@@ -188,7 +188,6 @@ function Invoke-SimpleAnalyzer {
 .INPUTS
     None. You cannot pipe objects to this script.
 #>
-feat: create the Invoke-SimpleFormatter & Invoke-SimpleAnalyzer commands
 function Invoke-SimpleFormatter {
     [CmdletBinding()]
     param (
