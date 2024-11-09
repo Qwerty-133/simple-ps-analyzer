@@ -12,9 +12,5 @@ param (
     [Hashtable]$FormatterArgs = @{}
 )
 
-try {
-    Invoke-SimpleFormatter @PSBoundParameters
-}
-catch {
-    Write-Error $_
-}
+$ErrorActionPreference = 'Stop'
+Invoke-SimpleFormatter @PSBoundParameters

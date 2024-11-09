@@ -15,9 +15,5 @@ param (
     [Hashtable]$AnalyzerArgs = @{}
 )
 
-try {
-    Invoke-SimpleAnalyzer @PSBoundParameters
-}
-catch {
-    Write-Error $_
-}
+$ErrorActionPreference = 'Stop'
+Invoke-SimpleAnalyzer @PSBoundParameters
